@@ -61,7 +61,7 @@ func (s *socket) Emit(event string, args ...interface{}) error {
 	if err := s.socketHandler.Emit(event, args...); err != nil {
 		return err
 	}
-	if event == "disconnect" {
+	if event == "disconnect" || event == "disconnection" {
 		s.conn.Close()
 	}
 	return nil
